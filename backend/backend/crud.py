@@ -27,6 +27,25 @@ def create_user(db: Session, user: schemas.UserCreate):
     return db_user
 
 
+#ediçao_user
+def edicao_user(db: Session, user_id: int, new_value: schemas.UserEdit):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if db_user:
+        if new_value.email != None: 
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"email": new_value.email})
+        if new_value.name != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"name": new_value.name})
+        if new_value.birth_date != None: 
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"birth_date": new_value.birth_date})
+
+    db.commit()
+    db.refresh(db_user)
+    return db_user
+        
+
 #Medidas
 def get_measures(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Measure).offset(skip).limit(limit).all()

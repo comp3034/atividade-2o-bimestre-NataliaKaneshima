@@ -41,7 +41,7 @@ PUT http://127.0.0.1:8082/users/1
 Content-Type: application/json
 
 {
-    
+    "name": "Xiao Yu"
 }
 
 
