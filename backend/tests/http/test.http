@@ -7,7 +7,7 @@ GET http://127.0.0.1:8000/hello/2021
 
 
 ###
-POST http://127.0.0.1:8082/users/
+POST http://127.0.0.1:8025/users/
 Content-Type: application/json
 
 {
@@ -24,7 +24,7 @@ Content-Type: application/json
 
 
 ###
-GET http://127.0.0.1:8082/users/
+GET http://127.0.0.1:8025/users/
 
 
 
@@ -33,11 +33,11 @@ GET http://127.0.0.1:8082/users/
 
 
 ###
-GET http://127.0.0.1:8082/users/1
+GET http://127.0.0.1:8025/users/1
 
 
 ###
-PUT http://127.0.0.1:8082/users/1
+PUT http://127.0.0.1:8025/users/1
 Content-Type: application/json
 
 {
