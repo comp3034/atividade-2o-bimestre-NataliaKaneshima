@@ -39,6 +39,12 @@ def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return users
 
 
+
+@app.get("/users/{user_id}", response_model=schemas.User)
+def get_user_id(user_id: int, db: Session = Depends(get_db)):
+    return crud.get_user(db, user_id)
+
+
 #Aqui para baixo Measure
 
 #cadastrar um usuario
