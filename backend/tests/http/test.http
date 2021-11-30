@@ -1,81 +1,75 @@
-GET http://127.0.0.1:8000/hello/2021
-
-
-
-
-
-
-
+GET http://0.0.0.0:8025/hello/2021
+ 
+ 
+ 
+ 
 ###
-POST http://127.0.0.1:8025/users/
+POST http://0.0.0.0:8025/users/
 Content-Type: application/json
-
+ 
 {
     "name": "Mario Ix",
     "email": "mhadaniya1ix@email.com",
     "password": "12345"
 }
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
 ###
-GET http://127.0.0.1:8025/users/
-
-
-
-
-
-
-
+GET http://127.0.0.1:8082/users/
+ 
+ 
+ 
 ###
-GET http://127.0.0.1:8025/users/1
-
-
+GET http://127.0.0.1:8082/users/1
+ 
+ 
+ 
 ###
-PUT http://127.0.0.1:8025/users/1
+POST http://127.0.0.1:8082/users/
 Content-Type: application/json
-
+ 
 {
-    "name": "Xiao Yu"
+    "name": "Xiao Yu",
+    "email": "xiao.yu@edu.unifil.br",
+    "password": "12345"
 }
-
-
-
-
-
-
-
-
-
+ 
 ###
-POST http://127.0.0.1:8000/users
+PUT http://127.0.0.1:8082/users/
 Content-Type: application/json
-
+ 
 {
-    "name": "Ricardo Silva",
-    "email": "ricardo.silva@email.com"
+    "name": "Xiao Yu",
+    "email": "xiao.yu@edu.unifil.br",
+    "birth_date": "2000-04-18"
 }
-
-
-
-
-
-
-
-
+ 
+ 
+ 
+###
+POST http://127.0.0.1:8082/
+Content-Type: application/json
+ 
+{
+    "name": "Xiao Yu",
+    "email": "xiao.yu@edu.unifil.br"
+}
+ 
+ 
+ 
+ 
+ 
 ###
 PUT http://127.0.0.1:8000/users/8
 Content-Type: application/json
-
+ 
 {
     "name": "Nome",
     "price": 1
 }
-
-### 
+ 
+###
 DELETE http://127.0.0.1:8000/users/8
+ 
