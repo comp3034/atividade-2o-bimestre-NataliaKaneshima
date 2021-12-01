@@ -22,7 +22,7 @@ GET http://127.0.0.1:8082/users/
  
  
 ###
-GET http://127.0.0.1:8082/users/1
+GET http://127.0.0.1:8082/users/6
  
  
  
@@ -35,6 +35,33 @@ Content-Type: application/json
     "email": "xiao.yu@edu.unifil.br",
     "password": "12345"
 }
+ 
+ 
+###
+GET http://127.0.0.1:8082/measures/
+ 
+ 
+###
+GET http://127.0.0.1:8082/users/6/measures/
+ 
+ 
+###
+POST http://127.0.0.1:8082/users/2/measures/
+Content-Type: application/json
+ 
+{
+    "height": "178",
+    "weight": "60",
+    "neck": "70",
+    "chest": "70",
+    "biceps": "70",
+    "waist": "70",
+    "thighs": "70",
+    "calf": "70"
+}
+ 
+ 
+ 
  
 ###
 PUT http://127.0.0.1:8082/users/
@@ -62,7 +89,7 @@ Content-Type: application/json
  
  
 ###
-PUT http://127.0.0.1:8000/users/8
+PUT http://127.0.0.1:8082/users/2
 Content-Type: application/json
  
 {
@@ -71,5 +98,5 @@ Content-Type: application/json
 }
  
 ###
-DELETE http://127.0.0.1:8000/users/8
+DELETE http://127.0.0.1:8082/users/2
  
