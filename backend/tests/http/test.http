@@ -37,16 +37,16 @@ Content-Type: application/json
 }
  
  
-###
+### testar
 GET http://127.0.0.1:8082/measures/
  
  
-###
-GET http://127.0.0.1:8082/users/6/measures/
+###testar
+GET http://127.0.0.1:8082/users/1/measures/
  
  
-###
-POST http://127.0.0.1:8082/users/2/measures/
+### testar
+POST http://127.0.0.1:8082/users/3/measures/
 Content-Type: application/json
  
 {
@@ -97,6 +97,6 @@ Content-Type: application/json
     "price": 1
 }
  
-###
+### testar
 DELETE http://127.0.0.1:8082/users/2
  

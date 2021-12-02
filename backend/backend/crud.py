@@ -47,6 +47,17 @@ def edi_user(db: Session, user_id: int, new_value: schemas.UserEdit):
     return db_user
        
  
+#deletear usuario
+def remove_user(db: Session, user_id: int):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if db_user:
+        db.delete(db_user)
+        db.commit()
+        db.refresh(db_user)
+        return db_user
+ 
+ 
+ 
 #Medidas
 def get_measures(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Measure).offset(skip).limit(limit).all()
