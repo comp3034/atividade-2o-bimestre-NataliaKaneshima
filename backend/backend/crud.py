@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
 from . import models, schemas
 from sqlalchemy import update
+from sqlalchemy import delete
  
  
 #Usuario
