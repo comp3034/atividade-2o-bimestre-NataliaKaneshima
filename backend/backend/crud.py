@@ -1,7 +1,6 @@
 from sqlalchemy.orm import Session
 from . import models, schemas
 from sqlalchemy import update
-from sqlalchemy import delete
  
  
 #Usuario
@@ -71,9 +70,10 @@ def get_user_measure(db: Session, user_id: int):
  
 #Criar medidas
 def create_user_measure(db: Session, measure: schemas.MeasureCreate, user_id: int):
-    db_measure = models.Measure(**measure.dict(), owner_id=user_id)
+    db_measure = models.Measure(**measure.dict(), user_id=user_id)
     db.add(db_measure)
     db.commit()
     db.refresh(db_measure)
     return db_measure
+ 
  

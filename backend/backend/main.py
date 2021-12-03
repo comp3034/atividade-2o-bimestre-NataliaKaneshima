@@ -30,6 +30,7 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     return user
  
  
+ 
 @app.get("/users/", response_model=List[schemas.User])
 def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = crud.get_users(db, skip=skip, limit=limit)
@@ -45,7 +46,7 @@ def read_user(user_id: int, db: Session = Depends(get_db)):
     return db_user
  
  
-#deleta user
+ 
 @app.delete("/users/{user_id}", response_model=schemas.User)
 def delete_user(user_id: int, db: Session = Depends(get_db)):
     db_user = crud.remove_user(db, user_id=user_id)
@@ -53,6 +54,27 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Usuario não encontrado")
    
     return f"Ususario com id: {user_id} deletado com sucesso"
+ 
+ 
+ 
+@app.put("/users/{user_id}", response_model=schemas.User)
+async def edit_user(user_id: int, new_value: schemas.UserEdit, db: Session = Depends(get_db)):
+    db_user = crud.get_user(db, user_id)
+    if db_user:
+        return crud.edi_user(db, user_id, new_value=new_value)
+   
+    raise HTTPException(status_code=400, detail="Usuario não encontrado")
+ 
+ 
+ 
+@app.patch("/users/{user_id}", response_model=schemas.User)
+async def edit_user(user_id: int, new_value: schemas.UserEdit, db: Session = Depends(get_db)):
+    db_user = crud.get_user(db, user_id)
+    if db_user:
+        return crud.edi_user(db, user_id, new_value=new_value)
+   
+    raise HTTPException(status_code=400, detail="Usuario não encontrado")
+ 
  
  
  
@@ -65,12 +87,14 @@ def create_measure(user_id: int, measure: schemas.MeasureCreate, db: Session = D
         return crud.create_user_measure(db, measure, user_id)
  
     raise HTTPException(status_code=400, detail="Usuario não encontrado")
-   
+ 
+ 
  
 @app.get("/measures/", response_model=List[schemas.Measure])
 def read_measures(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     users = crud.get_measures(db, skip=skip, limit=limit)
     return users
+ 
  
  
 @app.get("/users/{user_id}/measures/", response_model=schemas.Measure)
@@ -81,3 +105,4 @@ def user_measure(user_id: int, db: Session = Depends(get_db)):
  
     raise HTTPException(status_code=400, detail="Usuario não encontrado")
    
+ 
