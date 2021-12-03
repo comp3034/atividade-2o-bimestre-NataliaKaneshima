@@ -1,81 +1,99 @@
-GET http://127.0.0.1:8000/hello/2021
-
-
-
-
-
-
-
+ 
+###
+GET http://127.0.0.1:8082/users/
+ 
+ 
+ 
+###
+GET http://127.0.0.1:8082/users/8
+ 
+ 
+ 
 ###
 POST http://127.0.0.1:8082/users/
 Content-Type: application/json
-
+ 
 {
-    "name": "Mario Ix",
-    "email": "mhadaniya1ix@email.com",
+    "name": "teste",
+    "email": "teste@edu.unifil.br",
     "password": "12345"
 }
-
-
-
-
-
-
-
-
+ 
+###
+POST http://127.0.0.1:8082/users/
+Content-Type: application/json
+ 
+{
+    "name": "Maria Clara Eid Serigato",
+    "email": "maria.serigato@edu.unifil.br",
+    "password": "12345"
+}
+ 
+### testar
+GET http://127.0.0.1:8082/measures/
+ 
+ 
+###testar
+GET http://127.0.0.1:8082/users/1/measures/
+ 
+ 
+### testar
+POST http://127.0.0.1:8082/users/15/measures/
+Content-Type: application/json
+ 
+{
+    "height": "158",
+    "weight": "60",
+    "neck": "30",
+    "chest": "40",
+    "biceps": "40",
+    "waist": "30",
+    "thighs": "60",
+    "calf": "70"
+}
+ 
+ 
+ 
+ 
+###
+PUT http://127.0.0.1:8082/users/15
+Content-Type: application/json
+ 
+{
+    "name": "teste",
+    "email": "teste@edu.unifil.br",
+    "birth_date": "1912-04-01T21:32:01.793Z"
+}
+ 
+ 
+ 
+### isso funcona, se formos olhar novamente
+# a lista de usuarios, ele não vai estar mais lá
+ 
+DELETE http://127.0.0.1:8082/users/15
+ 
 ###
 GET http://127.0.0.1:8082/users/
-
-
-
-
-
-
-
+ 
+ 
+ 
+#ps: nota igual ou acima de 70 please ;>;
+ 
+ 
 ###
-GET http://127.0.0.1:8082/users/1
-
-
-###
-PUT http://127.0.0.1:8082/users/1
+PUT http://127.0.0.1:8082/users/14/measures/
 Content-Type: application/json
-
+ 
 {
-    
+    "height": "158",
+    "weight": "60",
+    "neck": "30",
+    "chest": "40",
+    "biceps": "40",
+    "hips": "0",
+    "waist": "35",
+    "thighs": "30",
+    "calf": "40"
+   
 }
-
-
-
-
-
-
-
-
-
-###
-POST http://127.0.0.1:8000/users
-Content-Type: application/json
-
-{
-    "name": "Ricardo Silva",
-    "email": "ricardo.silva@email.com"
-}
-
-
-
-
-
-
-
-
-###
-PUT http://127.0.0.1:8000/users/8
-Content-Type: application/json
-
-{
-    "name": "Nome",
-    "price": 1
-}
-
-### 
-DELETE http://127.0.0.1:8000/users/8
+ 
