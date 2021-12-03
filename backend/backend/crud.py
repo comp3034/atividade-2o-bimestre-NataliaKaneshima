@@ -77,3 +77,37 @@ def create_user_measure(db: Session, measure: schemas.MeasureCreate, user_id: in
     return db_measure
  
  
+#ediçao_measure
+def edi_measure(db: Session, user_id: int, new_value: schemas.MeasureEdit):
+    db_user = db.query(models.User).filter(models.User.id == user_id).first()
+    if db_user:
+        if new_value.height != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"height": new_value.height})
+        if new_value.weight != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"weight": new_value.weight})
+        if new_value.neck != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"neck": new_value.neck})
+        if new_value.chest != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"chest": new_value.chest})
+        if new_value.biceps != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"biceps": new_value.biceps})
+        if new_value.waist != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"waist": new_value.waist})
+        if new_value.thighs != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"thighs": new_value.thighs})
+        if new_value.calf != None:
+            db.query(models.User).filter(models.User.id == user_id).\
+                update({"calf": new_value.calf})
+   
+    db.commit()
+    db.refresh(db_user)
+    return db_user
+ 
+ 

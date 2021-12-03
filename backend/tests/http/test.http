@@ -14,8 +14,8 @@ POST http://127.0.0.1:8082/users/
 Content-Type: application/json
  
 {
-    "name": "Xiao Yu",
-    "email": "xiao.yu@edu.unifil.br",
+    "name": "teste",
+    "email": "teste@edu.unifil.br",
     "password": "12345"
 }
  
@@ -38,11 +38,11 @@ GET http://127.0.0.1:8082/users/1/measures/
  
  
 ### testar
-POST http://127.0.0.1:8082/users/5/measures/
+POST http://127.0.0.1:8082/users/15/measures/
 Content-Type: application/json
  
 {
-    "height": "178",
+    "height": "158",
     "weight": "60",
     "neck": "30",
     "chest": "40",
@@ -56,20 +56,44 @@ Content-Type: application/json
  
  
 ###
-PUT http://127.0.0.1:8082/users/11
+PUT http://127.0.0.1:8082/users/15
 Content-Type: application/json
  
 {
-    "name": "Xiao Yuki",
-    "email": "xiao.yu@edu.unifil.br",
-    "birth_date": "2000-04-18T21:32:01.793Z"
+    "name": "teste",
+    "email": "teste@edu.unifil.br",
+    "birth_date": "1912-04-01T21:32:01.793Z"
 }
  
  
  
-### isso funcona, se formos olhar novamente a lista de usuarios, ele não vai estar mais lá
-DELETE http://127.0.0.1:8082/users/13
+### isso funcona, se formos olhar novamente
+# a lista de usuarios, ele não vai estar mais lá
+ 
+DELETE http://127.0.0.1:8082/users/15
  
 ###
 GET http://127.0.0.1:8082/users/
+ 
+ 
+ 
+#ps: nota igual ou acima de 70 please ;>;
+ 
+ 
+###
+PUT http://127.0.0.1:8082/users/14/measures/
+Content-Type: application/json
+ 
+{
+    "height": "158",
+    "weight": "60",
+    "neck": "30",
+    "chest": "40",
+    "biceps": "40",
+    "hips": "0",
+    "waist": "35",
+    "thighs": "30",
+    "calf": "40"
+   
+}
  

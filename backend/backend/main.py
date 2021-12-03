@@ -106,3 +106,22 @@ def user_measure(user_id: int, db: Session = Depends(get_db)):
     raise HTTPException(status_code=400, detail="Usuario não encontrado")
    
  
+ 
+@app.put("/users/{user_id}/measures/", response_model=schemas.Measure)
+async def edit_measure(user_id: int, new_value: schemas.MeasureEdit, db: Session = Depends(get_db)):
+    db_user = crud.get_user(db, user_id)
+    if db_user:
+        return crud.edi_measure(db, user_id, new_value=new_value)
+   
+    raise HTTPException(status_code=400, detail="Usuario não encontrado")
+ 
+ 
+ 
+@app.patch("/users/{user_id}/measures/", response_model=schemas.Measure)
+async def edit_measure(user_id: int, new_value: schemas.MeasureEdit, db: Session = Depends(get_db)):
+    db_user = crud.get_user(db, user_id)
+    if db_user:
+        return crud.edi_measure(db, user_id, new_value=new_value)
+   
+    raise HTTPException(status_code=400, detail="Usuario não encontrado")
+ 
